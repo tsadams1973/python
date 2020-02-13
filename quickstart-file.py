@@ -86,7 +86,7 @@ This example detects different kinds of objects with bounding boxes in a remote 
 '''
 print("===== Detect Objects - remote =====")
 # Get URL image with different objects
-remote_image_url_objects = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg"
+remote_image_url_objects = "https://free-images.com/lg/556a/netherlands_landscape_sky_clouds.jpg"
 # Call API with URL
 detect_objects_results_remote = computervision_client.detect_objects(remote_image_url_objects)
 
@@ -106,7 +106,7 @@ This example detects common brands like logos and puts a bounding box around the
 '''
 print("===== Detect Brands - remote =====")
 # Get a URL with a brand logo
-remote_image_url = "https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/images/gray-shirt-logo.jpg"
+remote_image_url = "https://free-images.com/lg/4f1a/brand_ford_mustang_symbol.jpg"
 # Select the visual feature(s) you want
 remote_image_features = ["brands"]
 # Call API with URL and features
@@ -128,7 +128,7 @@ and marks them with a bounding box.
 '''
 print("===== Detect Faces - remote =====")
 # Get an image with faces
-remote_image_url_faces = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg"
+remote_image_url_faces = "https://free-images.com/lg/b17a/blue_summer_woman_mom.jpg"
 # Select the visual feature(s) you want.
 remote_image_features = ["faces"]
 # Call the API with remote URL and features
@@ -185,7 +185,7 @@ This example detects celebrites and landmarks in remote images.
 '''
 print("===== Detect Domain-specific Content - remote =====")
 # URL of one or more celebrities
-remote_image_url_celebs = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg"
+remote_image_url_celebs = "https://free-images.com/lg/05a9/elvis_presley_jailhouse_rock.jpg"
 # Call API with content type (celebrities) and URL
 detect_domain_results_celebs_remote = computervision_client.analyze_image_by_domain("celebrities", remote_image_url_celebs)
 
@@ -196,6 +196,8 @@ if len(detect_domain_results_celebs_remote.result["celebrities"]) == 0:
 else:
     for celeb in detect_domain_results_celebs_remote.result["celebrities"]:
         print(celeb["name"])
+
+remote_image_url = "https://free-images.com/lg/07a9/landmark_venice_italy_italian.jpg"
 
 # Call API with content type (landmarks) and URL
 detect_domain_results_landmarks = computervision_client.analyze_image_by_domain("landmarks", remote_image_url)
@@ -212,9 +214,10 @@ else:
 Detect Image Types - remote
 This example detects an image's type (clip art/line drawing).
 '''
+'''
 print("===== Detect Image Types - remote =====")
 # Get URL of an image with a type
-remote_image_url_type = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/type-image.jpg"
+remote_image_url_type = "https://free-images.com/or/86ae/cute_girl_svg.svg"
 # Select visual feature(s) you want
 remote_image_features = VisualFeatureTypes.image_type
 # Call API with URL and features
@@ -235,7 +238,7 @@ if detect_type_results_remote.image_type.line_drawing_type == 0:
     print("Image is not a line drawing.")
 else:
     print("Image is a line drawing")
-
+'''
 '''
 Batch Read File, recognize printed text - remote
 This example will extract printed text in an image, then print results, line by line.
@@ -243,7 +246,7 @@ This API call can also recognize handwriting (not shown).
 '''
 print("===== Batch Read File - remote =====")
 # Get an image with printed text
-remote_image_printed_text_url = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/printed_text.jpg"
+remote_image_printed_text_url = "https://free-images.com/lg/26f6/text_pedestal_obelisk_saint.jpg"
 
 # Call API with URL and raw response (allows you to get the operation location)
 recognize_printed_results = computervision_client.batch_read_file(remote_image_printed_text_url,  raw=True)
